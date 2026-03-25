@@ -17,7 +17,7 @@ class SongRepositoryFirebase extends SongRepository {
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);
       return data.entries
-          .map((entry) => SongDto.fromJson(entry.key, entry.value as Map<String, dynamic>))
+          .map((entry) => SongDto.fromJson(entry.key, entry.value))
           .toList();
     } else {
       throw Exception('Failed to load posts');
